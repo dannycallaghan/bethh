@@ -1,0 +1,35 @@
+/*
+Units:
+
+px - pixel FIXED
+em - em
+rem - relative em
+% - percentage
+vw - width of the viewport FIXED
+vh - height of the viewport FIXED
+
+Default = 16px
+We want 4px: 16 / 4 = .25rem = 4px
+*/
+
+html {
+  box-sizing: border-box;
+  /* font-size: 16px; We don't want this (it's also default so unecessary) */
+  font-size: 62.5%; /* Our default is now 10px = 1rem */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem; /* This now equal 16px */
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

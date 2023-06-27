@@ -1,0 +1,6 @@
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: var(--default-font, Arial);
+}
