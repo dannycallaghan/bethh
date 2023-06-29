@@ -16,14 +16,45 @@
   <div class="wrapper">
 
     <header>
-      <h1><a href="#" title="Return to home page">Denali</a></h1>
-      <div class="nav">
-        <button type="button"><i class="bi bi-list"></i></button>
+      <div>
+        <h1><a href="#" title="Return to home page">Denali</a></h1>
+        <div class="sm-screen-btn">
+          <button type="button"><i class="bi bi-list"></i></button>
+        </div>
       </div>
+      <nav class="sm-screen">
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
   </div>
 
+  <script>
+    (() => {
+
+      const navBtn = document.querySelector('.sm-screen-btn button');
+      const header = document.querySelector('header');
+
+      function showSmallScreenMenu() {
+        header.classList.add('sm-screen-menu-show');
+        navBtn.removeEventListener('click', showSmallScreenMenu);
+        navBtn.addEventListener('click', hideSmallScreenMenu, false);
+      }
+
+      function hideSmallScreenMenu() {
+        header.classList.remove('sm-screen-menu-show');
+        navBtn.removeEventListener('click', hideSmallScreenMenu);
+        navBtn.addEventListener('click', showSmallScreenMenu, false);
+      }
+
+      navBtn.addEventListener('click', showSmallScreenMenu, false);
+
+    })();
+  </script>
 
 
 </body>

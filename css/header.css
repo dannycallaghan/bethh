@@ -1,9 +1,14 @@
 header {
+}
+
+header > div {
   background-color: var(--content-bg-color);
   height: 75px;
   display: flex;
   align-items: center;
   padding: 0 calc(2 * var(--base-space));
+  position: relative;
+  z-index: 1;
 }
 
 header h1 {
@@ -12,30 +17,66 @@ header h1 {
 }
 
 header h1 a {
-  color: #111;
+  color: var(--dark-text-color);
   text-decoration: none;
   font-weight: normal;
   font-size: 2.4rem;
   display: block;
 }
 
-header > div {
+header div.sm-screen-btn {
   display: flex;
   justify-content: flex-end;
   flex: 1;
 }
 
-.nav button {
+.sm-screen-btn button {
   border: 0;
-  padding: 2rem;
-  color: #111;
-  background-color: #fff;
+  padding: 15px;
+  margin-right: -1rem;
+  color: var(--dark-text-color);
+  background-color: var(--content-bg-color);
   font-weight: bold;
+  font-size: 2.2rem;
+  cursor: pointer;
 }
 
-.nav button:active {
+.sm-screen-menu-show .sm-screen-btn button {
+  color: var(--content-bg-color);
   background-color: #c8c8c8;
-  color: #fff;
+}
+
+nav.sm-screen {
+  width: 100%;
+  background-color: var(--content-bg-color);
+  transform: translateY(-100%);
+  position: relative;
+  z-index: 0;
+  transition: transform ease-out .4s;
+}
+
+.sm-screen-menu-show nav.sm-screen {
+  transform: translateY(0);
+}
+
+nav.sm-screen ul,
+nav.sm-screen li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav.sm-screen a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--main-text-color);
+  padding: 15px 0;
+  font-size: 1.5rem;
+}
+
+nav.sm-screen a.active {
+  color: var(--dark-text-color);
 }
 
 
