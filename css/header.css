@@ -1,4 +1,6 @@
 header {
+  background-color: var(--content-bg-color);
+  height: 75px;
 }
 
 header > div {
@@ -9,6 +11,8 @@ header > div {
   padding: 0 calc(2 * var(--base-space));
   position: relative;
   z-index: 1;
+  max-width: 728px;
+  margin: 0 auto;
 }
 
 header h1 {
@@ -47,37 +51,80 @@ header div.sm-screen-btn {
 }
 
 nav.sm-screen {
+  display: block;
   width: 100%;
   background-color: var(--content-bg-color);
   transform: translateY(-100%);
   position: relative;
+  top: 1px;
   z-index: 0;
   transition: transform ease-out .4s;
+  border-bottom: solid 1px var(--default-border-color);
 }
 
 .sm-screen-menu-show nav.sm-screen {
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
-nav.sm-screen ul,
-nav.sm-screen li {
+nav.lg-screen {
+  display: none;
+}
+
+nav ul,
+nav li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-nav.sm-screen a {
-  display: block;
-  text-align: center;
+nav a {
   text-decoration: none;
   color: var(--main-text-color);
-  padding: 15px 0;
   font-size: 1.5rem;
 }
 
-nav.sm-screen a.active {
+nav.sm-screen a {
+  display: block;
+  text-align: center;
+  padding: 15px 0;
+}
+
+nav a.active {
   color: var(--dark-text-color);
 }
 
+@media screen and (min-width: 991px) {
 
+  header {
+    border-bottom: 1px solid var(--default-border-color);
+    height: 76px;
+  }
 
+  header > div {
+    max-width: 940px;
+    border-bottom: 1px solid var(--default-border-color);
+    height: 76px;
+  }
+
+  nav.sm-screen {
+    display: none;
+  }
+
+  nav.lg-screen {
+    display: block;
+  }
+
+  nav.lg-screen ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  nav.lg-screen li {
+    margin-left: calc(2 * var(--base-space));
+  }
+
+  .sm-screen-btn button {
+    display: none;
+  }
+
+}
